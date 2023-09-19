@@ -2,7 +2,6 @@
 .mySlides {display: none}
 img {vertical-align: middle;} */
 
-
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -19,7 +18,7 @@ img {vertical-align: middle;} */
   width: auto;
   padding: 16px;
   margin-top: -22px;
-  color: red;
+  color: #777;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -36,7 +35,8 @@ img {vertical-align: middle;} */
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #777;
+  color:#fff
 }
 
 /* Caption text */
@@ -52,7 +52,7 @@ img {vertical-align: middle;} */
 
 /* Ai */
 .search-div {
-  width: 40%;
+  width: 100%;
   margin: auto;
 }
 
@@ -62,7 +62,11 @@ img {vertical-align: middle;} */
 }
 
 .search-div input {
-  font-size: 1rem;
+  font-size: larger;
+  font-family: 'Roboto', sans-serif;
+  height:2rem;
+  border: 3px solid #777;
+  border-radius: 10px;
 }
 
 .photo {
@@ -75,4 +79,105 @@ img {vertical-align: middle;} */
 
 .last-div {
   text-align: center;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size:larger;
+  border: none;
+  border-radius: 10px;
+  background-color: #777;
+  color:#fff;
+  padding:10px;
+  margin:20px;
+  transition: color 2s, background-color 2s;
+}
+
+button:hover {
+  color:blue;
+  border: 3px solid aqua;
+  background-color:aliceblue;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  /* body {
+    background-color: lightgreen;
+  } */
+
+  .search-div {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .search-div form {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .search-div input {
+    font-size: larger;
+    font-family: 'Roboto', sans-serif;
+    height:2rem;
+    border: 3px solid #777;
+    border-radius: 10px;
+  }
+  
+  /* .photo {
+    width: 80%;
+    height: 600px;
+    object-fit: contain;
+    display:block;
+    margin:auto;
+  } */
+  
+  button {
+    font-size:large;
+    padding:10px;
+    /* margin:auto; */
+    transition: color 2s, background-color 2s;
+    /* display:block; */
+  }
+}
+
+
+
+
+@media screen and (max-width: 576px) {
+  /* body {
+    background-color: peru;
+  } */
+
+  .search-div {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .search-div form {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .search-div input {
+    font-size: medium;
+    height:2rem;
+    border: 3px solid #777;
+  }
+  
+  .photo {
+    width: 80%;
+    height: 600px;
+    object-fit: contain;
+    display:block;
+    margin:auto;
+  }
+
+  button {
+    font-size:medium;
+    padding:10px;
+    margin:auto;
+    margin-top:10px;
+    display:block;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function SearchBar({ onSubmit }) {
 
@@ -10,17 +10,16 @@ function SearchBar({ onSubmit }) {
 
     const handleClick = (e) => {
         e.preventDefault();
-        onSubmit(search)
-        setSearch("");
+        onSubmit(search);
+        setSearch('');
     }
 
     return (
         <div className="search-div">
             <form onSubmit={handleClick}>
-                <input type="text" name="search" onChange={handleChange} />
+                <input type="text" name="search" onChange={handleChange} placeholder="Your inspiration..." value={search}/>
                 <button>Search</button>
             </form>
-
         </div>
     )
 };

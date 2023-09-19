@@ -3,17 +3,37 @@ import one from "./images/one.jpg";
 import two from "./images/two.jpg";
 import three from "./images/three.jpg";
 
-function Carousel({ images }) {
+function Carousel({ images, rendered }) {
 
-    const defaultImage = one
-    const [image, setImage] = useState(defaultImage);
+    const defaultImages = [one, two, three];
+
+    const [image, setImage] = useState(defaultImages[0]);
     const [index, setIndex] = useState(0);
 
-    const handlePrev = () => {
+    useEffect(() => {
+        if (rendered && images.length === 0) {
+            setImage(defaultImages[0]);
+            alert("No result retrived");
+        } else if (rendered) {
+            setImage(images[0].urls.regular);
+        };
+    }, [rendered]);
 
+    
+    const handlePrev = () => {
         const newIndex = index - 1;
-        setIndex(newIndex < 0 ? images.length - 1 : newIndex);
-        setImage(newIndex < 0 ? images[images.length - 1].urls.regular : images[newIndex].urls.regular)
+        if (images.length === 0) {
+            images = defaultImages;
+            setIndex(newIndex < 0 ? images.length - 1 : newIndex);
+            setImage(newIndex < 0 ? images[images.length - 1] : images[newIndex])
+        } else {
+            setIndex(newIndex < 0 ? images.length - 1 : newIndex);
+            setImage(newIndex < 0 ? images[images.length - 1].urls.regular : images[newIndex].urls.regular)
+        }
+
+        // const newIndex = index - 1;
+        // setIndex(newIndex < 0 ? images.length - 1 : newIndex);
+        // setImage(newIndex < 0 ? images[images.length - 1].urls.regular : images[newIndex].urls.regular)
 
         // if (index >= images.length) {
         //     setIndex(0);
@@ -29,11 +49,21 @@ function Carousel({ images }) {
         console.log(`Prev (after) Current Index is ${index}`)
     };
 
-    const handleNext = () => {
 
+    const handleNext = () => {
         const newIndex = index + 1;
-        setIndex(newIndex >= images.length ? 0 : newIndex);
-        setImage(newIndex >= images.length ? images[0].urls.regular : images[newIndex].urls.regular)
+        if (images.length === 0) {
+            images = defaultImages;
+            setIndex(newIndex >= images.length ? 0 : newIndex);
+            setImage(newIndex >= images.length ? images[0] : images[newIndex])
+        } else {
+            setIndex(newIndex >= images.length ? 0 : newIndex);
+            setImage(newIndex >= images.length ? images[0].urls.regular : images[newIndex].urls.regular)
+        }
+
+        // const newIndex = index + 1;
+        // setIndex(newIndex >= images.length ? 0 : newIndex);
+        // setImage(newIndex >= images.length ? images[0].urls.regular : images[newIndex].urls.regular)
 
 
         // if (index >= images.length) {
@@ -47,14 +77,14 @@ function Carousel({ images }) {
         console.log(`Next (after) Current Index is ${index}`)
     };
 
-    const description = images[index].alt_description;
+    //const description = images[index].alt_description;
 
     return (
         <div className="slideshow-container">
-            <p>{index}</p>
+
             <div className="mySlides">
                 <img className="photo" src={image} alt="img" />
-                <div className="text">{description}</div>
+                <div className="text"></div>
             </div>
 
             <a className="prev" onClick={handlePrev}>❮</a>
