@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function SearchBar({ onSubmit }) {
 
@@ -17,7 +17,13 @@ function SearchBar({ onSubmit }) {
     return (
         <div className="search-div">
             <form onSubmit={handleClick}>
-                <input type="text" name="search" onChange={handleChange} placeholder="Your inspiration..." value={search}/>
+                <input
+                    type="text"
+                    name="search"
+                    onChange={handleChange}
+                    placeholder=" Your inspiration..."
+                    value={search}
+                />
                 <button>Search</button>
             </form>
         </div>

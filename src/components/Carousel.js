@@ -19,7 +19,7 @@ function Carousel({ images, rendered }) {
         };
     }, [rendered]);
 
-    
+
     const handlePrev = () => {
         const newIndex = index - 1;
         if (images.length === 0) {
@@ -30,23 +30,6 @@ function Carousel({ images, rendered }) {
             setIndex(newIndex < 0 ? images.length - 1 : newIndex);
             setImage(newIndex < 0 ? images[images.length - 1].urls.regular : images[newIndex].urls.regular)
         }
-
-        // const newIndex = index - 1;
-        // setIndex(newIndex < 0 ? images.length - 1 : newIndex);
-        // setImage(newIndex < 0 ? images[images.length - 1].urls.regular : images[newIndex].urls.regular)
-
-        // if (index >= images.length) {
-        //     setIndex(0);
-        //     setImage(images[0].urls.regular)
-        //     // setIndex(9)
-        // } else if (index <= 0) {
-        //     setIndex(images.length - 1);
-        //     setImage(images[9].urls.regular)
-        // } else {
-        //     setImage(images[index].urls.regular);
-        //     setIndex(index - 1)
-        // }
-        console.log(`Prev (after) Current Index is ${index}`)
     };
 
 
@@ -60,24 +43,8 @@ function Carousel({ images, rendered }) {
             setIndex(newIndex >= images.length ? 0 : newIndex);
             setImage(newIndex >= images.length ? images[0].urls.regular : images[newIndex].urls.regular)
         }
-
-        // const newIndex = index + 1;
-        // setIndex(newIndex >= images.length ? 0 : newIndex);
-        // setImage(newIndex >= images.length ? images[0].urls.regular : images[newIndex].urls.regular)
-
-
-        // if (index >= images.length) {
-        //     setIndex(1);
-        //     setImage(images[0].urls.regular)
-        //     // setIndex(1)
-        // } else {
-        //     setImage(images[index].urls.regular);
-        //     setIndex(index + 1)
-        // }
-        console.log(`Next (after) Current Index is ${index}`)
     };
 
-    //const description = images[index].alt_description;
 
     return (
         <div className="slideshow-container">
